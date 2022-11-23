@@ -19,7 +19,7 @@ const NavBar = () => {
         <Button color="inherit" to="/about" component={Link}>
           About
         </Button>
-        <Button color="inherit" to="/events" component={Link}>
+        <Button color="inherit" to="/gigs" component={Link}>
           Gigs
         </Button>
       </Toolbar>
