@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
-    <div>About</div>
-  )
-}
+    <div>
+      <p>See what shows are happening in your city!</p>
+      <p>Bands can add their shows to the list!</p>
+    </div>
+  );
+};
 
-export default About
+export default About;
