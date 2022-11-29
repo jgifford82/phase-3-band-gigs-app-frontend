@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const GigsList = () => {
-  return (
-    <div>GigsList</div>
-  )
-}
+const GigsList = ({ gigs }) => {
+  // console.log(gigs);
+  const renderGigs = gigs.map((gig) => (
+    <ul key={gig.id}>
+      <span style={{ fontWeight: "bold" }}>{gig.band}</span>: {gig.date}{" "}
+      {gig.time} at {gig.venue} for ${gig.price}
+    </ul>
+  ));
 
-export default GigsList
+  return <div>GigsList {renderGigs}</div>;
+};
+
+export default GigsList;
