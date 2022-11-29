@@ -6,6 +6,17 @@ const GigsContainer = () => {
   // This is the state used for the gigs array.
   const [gigs, setGigs] = useState([]);
 
+  // This fetches the data from backend server and sets the state with that data.
+  // the empty dependencies array means the side effect runs only the first time the component renders.
+  useEffect(() => {
+    fetch("http://localhost:9292/events")
+      .then((res) => res.json())
+      // .then((data) => console.log(data));
+      .then((data) => setGigs(data));
+  }, []);
+
+  // console.log(gigs);
+
   return (
     <div>
       <GigsForm />
