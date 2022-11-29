@@ -11,7 +11,7 @@ const GigsContainer = () => {
       <GigsForm />
       <br></br>
       <br></br>
-      <GigsList />
+      <GigsList gigs={gigs} />
     </div>
   );
 };
