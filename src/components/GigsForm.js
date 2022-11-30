@@ -71,7 +71,7 @@ const GigsForm = () => {
             <input
               type="text"
               name="date"
-              placeholder="Date"
+              placeholder="Date format YYYY-MM-DD"
               value={values.date}
               onChange={handleInputChange}
             />
@@ -92,7 +92,7 @@ const GigsForm = () => {
             <input
               type="text"
               name="price"
-              placeholder="Price"
+              placeholder="Price (number only, no $)"
               value={values.price}
               onChange={handleInputChange}
             />
