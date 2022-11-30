@@ -17,9 +17,16 @@ const GigsContainer = () => {
 
   // console.log(gigs);
 
+  // This updates state responsible for rendering events when a new event is added.
+  // Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsContainer).
+  function handleAddGig(newGig) {
+    // console.log("In EventsContainer:", newMeet);
+    setGigs([...gigs, newGig]);
+  }
+
   return (
     <div>
-      <GigsForm />
+      <GigsForm onAddGig={handleAddGig} />
       <br></br>
       <br></br>
       <GigsList gigs={gigs} />
