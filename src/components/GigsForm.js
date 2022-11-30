@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const GigsForm = () => {
+const GigsForm = ({ onAddGig }) => {
   const initialValues = {
     band: "",
     date: "",
@@ -42,8 +42,8 @@ const GigsForm = () => {
       body: JSON.stringify(values),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
-    // .then((newMeet) => onAddMeet(newMeet));
+      // .then((data) => console.log(data));
+      .then((newGig) => onAddGig(newGig));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
