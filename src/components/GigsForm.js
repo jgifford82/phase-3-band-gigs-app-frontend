@@ -46,7 +46,7 @@ const GigsForm = () => {
     // .then((newMeet) => onAddMeet(newMeet));
 
     // clear input fields on submit by updating values state:
-    // setValues(initialValues);
+    setValues(initialValues);
   }
 
   return (
