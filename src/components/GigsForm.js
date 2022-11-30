@@ -28,6 +28,13 @@ const GigsForm = () => {
     console.log(values);
   };
 
+  function handleSubmit(event) {
+    // prevent page refresh on submit:
+    event.preventDefault();
+    // console.log("submitted");
+    // console.log(values);
+  }
+
   return (
     <div>
       GigsForm
@@ -37,7 +44,7 @@ const GigsForm = () => {
         sx={{ flexGrow: 1 }}
         align="center"
       >
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <span style={{ fontWeight: "bold" }}>Add New Gig:</span>
             <input
