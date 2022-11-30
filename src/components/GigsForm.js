@@ -25,7 +25,7 @@ const GigsForm = () => {
       ...values,
       [name]: value,
     });
-    console.log(values);
+    // console.log(values);
   };
 
   function handleSubmit(event) {
@@ -33,6 +33,20 @@ const GigsForm = () => {
     event.preventDefault();
     // console.log("submitted");
     // console.log(values);
+
+    fetch("http://localhost:9292/events", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+    // .then((newMeet) => onAddMeet(newMeet));
+
+    // clear input fields on submit by updating values state:
+    // setValues(initialValues);
   }
 
   return (
