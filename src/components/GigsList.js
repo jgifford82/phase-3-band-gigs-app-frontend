@@ -4,6 +4,7 @@ const GigsList = ({ gigs }) => {
   // console.log(gigs);
   const renderGigs = gigs.map((gig) => (
     <ul key={gig.id}>
+      <button>X</button>
       <span style={{ fontWeight: "bold" }}>{gig.band}</span>: {gig.date}{" "}
       {gig.time} at {gig.venue} for ${gig.price}
     </ul>
