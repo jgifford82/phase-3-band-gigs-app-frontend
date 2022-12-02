@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CitiesList from "./CitiesList";
 
 const CitiesContainer = () => {
   const [cities, setCities] = useState([]);
@@ -10,7 +11,12 @@ const CitiesContainer = () => {
       .then((data) => setCities(data));
   }, []);
 
-  return <div>CitiesContainer</div>;
+  return (
+    <div>
+      CitiesContainer
+      <CitiesList cities={cities} />
+    </div>
+  );
 };
 
 export default CitiesContainer;
