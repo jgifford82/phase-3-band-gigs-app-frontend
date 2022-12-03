@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const GigsForm = ({ onAddGig }) => {
+const EventsForm = ({ onAddEvent }) => {
   const initialValues = {
     band: "",
     date: "",
@@ -43,7 +43,7 @@ const GigsForm = ({ onAddGig }) => {
     })
       .then((r) => r.json())
       // .then((data) => console.log(data));
-      .then((newGig) => onAddGig(newGig));
+      .then((newEvent) => onAddEvent(newEvent));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
@@ -51,7 +51,7 @@ const GigsForm = ({ onAddGig }) => {
 
   return (
     <div>
-      GigsForm
+      EventsForm
       <Typography
         variant="h6"
         component="div"
@@ -60,7 +60,7 @@ const GigsForm = ({ onAddGig }) => {
       >
         <form onSubmit={handleSubmit}>
           <label>
-            <span style={{ fontWeight: "bold" }}>Add New Gig:</span>
+            <span style={{ fontWeight: "bold" }}>Add New Event:</span>
             <input
               type="text"
               name="band"
@@ -104,4 +104,4 @@ const GigsForm = ({ onAddGig }) => {
   );
 };
 
-export default GigsForm;
+export default EventsForm;
