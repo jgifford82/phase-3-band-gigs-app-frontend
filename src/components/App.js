@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,6 +9,26 @@ import GigsContainer from "./GigsContainer";
 // Keep NavBar within Router below so we can use the links.
 
 const App = () => {
+  const [cities, setCities] = useState([]);
+
+  console.log(cities);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/cities")
+      .then((res) => res.json())
+      //   .then((data) => console.log(data));
+      .then((data) => setCities(data));
+  }, []);
+
+  // This is an example of code for onDelete function:
+  //   const newCities = cities.map((city) => {
+  //     return {
+
+  //       ...city,
+  //         gigs: city.gigs.filter((gig) => gig.id !== deletedGig.id)
+  //     }}
+  // setCities(newCities)
+
   return (
     <Router>
       <NavBar />
