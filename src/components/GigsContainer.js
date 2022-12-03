@@ -24,12 +24,23 @@ const GigsContainer = () => {
     setGigs([...gigs, newGig]);
   }
 
+  function handleDeleteGig(deletedGig) {
+    // console.log("handle delete gig", deletedGig);
+    // const test = gigs.map((gig) => gig.id);
+    // console.log("handle delete gig", test);
+    const testB = gigs.filter((gig) => gig.id !== deletedGig.id);
+    console.log("handle delete gig", testB);
+    // const updatedGigs = gigs.filter((gig) => console.log(deletedGig.id));
+    // const updatedGigs = gigs.filter((gig) => gig.id !== deletedGig.id);
+    // setGigs(updatedGigs);
+  }
+
   return (
     <div>
       <GigsForm onAddGig={handleAddGig} />
       <br></br>
       <br></br>
-      <GigsList gigs={gigs} />
+      <GigsList gigs={gigs} onDeleteGig={handleDeleteGig} />
     </div>
   );
 };
