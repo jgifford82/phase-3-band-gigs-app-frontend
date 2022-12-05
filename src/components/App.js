@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import EventsContainer from "./EventsContainer";
 import CitiesContainer from "./CitiesContainer";
+import CitiesEventsContainer from "./CitiesEventsContainer";
 // import BrowserRouter as Router for easier reference in code below.
 // use Routes instead of Switch, and wrap everything in Routes.
 // Keep NavBar within Router below so we can use the links.
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cities" element={<CitiesContainer />} />
+        <Route path="/cities/:id" element={<CitiesEventsContainer />} />
         <Route path="/events" element={<EventsContainer />} />
       </Routes>
     </Router>
