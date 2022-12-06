@@ -14,7 +14,7 @@ import CitiesList from "./CitiesList";
 const App = () => {
   const [cities, setCities] = useState([]);
 
-  console.log(cities);
+  // console.log(cities);
 
   useEffect(() => {
     fetch("http://localhost:9292/cities")
@@ -39,7 +39,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cities" element={<CitiesList cities={cities} />} />
-        <Route path="/cities/:id" element={<CitiesEventsContainer />} />
+        {/* <Route path="/cities/:id" element={<CitiesEventsContainer />} /> */}
         <Route path="/events" element={<EventsContainer />} />
       </Routes>
     </Router>
