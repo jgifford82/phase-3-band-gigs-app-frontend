@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import CitiesList from "./CitiesList";
+// import React, { useEffect, useState } from "react";
+// import CitiesList from "./CitiesList";
 
-const CitiesContainer = () => {
-  const [cities, setCities] = useState([]);
+// const CitiesContainer = ({ cities }) => {
+//   //   const [cities, setCities] = useState([]);
 
-  //   console.log(cities);
+//   //   //   console.log(cities);
 
-  useEffect(() => {
-    fetch("http://localhost:9292/cities")
-      .then((res) => res.json())
-      //   .then((data) => console.log(data));
-      .then((data) => setCities(data));
-  }, []);
+//   //   useEffect(() => {
+//   //     fetch("http://localhost:9292/cities")
+//   //       .then((res) => res.json())
+//   //       //   .then((data) => console.log(data));
+//   //       .then((data) => setCities(data));
+//   //   }, []);
 
-  return (
-    <div>
-      CitiesContainer
-      <CitiesList cities={cities} />
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       CitiesContainer
+//       <CitiesList cities={cities} />
+//     </div>
+//   );
+// };
 
-export default CitiesContainer;
+// export default CitiesContainer;
