@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 import About from "./About";
 import EventsContainer from "./EventsContainer";
-// import CitiesContainer from "./CitiesContainer";
-import CitiesEventsContainer from "./CitiesEventsContainer";
+import CitiesEventsList from "./CitiesEventsList";
 import CitiesList from "./CitiesList";
 // import BrowserRouter as Router for easier reference in code below.
 // use Routes instead of Switch, and wrap everything in Routes.
@@ -39,7 +43,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cities" element={<CitiesList cities={cities} />} />
-        <Route path="/cities/:id" element={<CitiesEventsContainer />} />
+        <Route
+          path="/cities/:id"
+          element={<CitiesEventsList cities={cities} />}
+        />
         <Route path="/events" element={<EventsContainer />} />
       </Routes>
     </Router>
