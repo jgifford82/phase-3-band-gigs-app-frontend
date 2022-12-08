@@ -16,6 +16,9 @@ const App = () => {
   // console.log(cities);
   // console.log(cities.events);
 
+  const nestedEvents = cities.map((city) => city.events);
+  console.log(nestedEvents);
+
   // This fetches the data from backend server and sets the state with that data. Empty dependencies array means the side effect runs only the first time the component renders.
   useEffect(() => {
     fetch("http://localhost:9292/cities")
