@@ -16,6 +16,7 @@ const App = () => {
   // console.log(cities);
   // console.log(cities.events);
 
+  // This fetches the data from backend server and sets the state with that data. Empty dependencies array means the side effect runs only the first time the component renders.
   useEffect(() => {
     fetch("http://localhost:9292/cities")
       .then((res) => res.json())
@@ -23,8 +24,6 @@ const App = () => {
       .then((data) => setCities(data));
   }, []);
 
-  // This fetches the data from backend server and sets the state with that data.
-  // the empty dependencies array means the side effect runs only the first time the component renders.
   useEffect(() => {
     fetch("http://localhost:9292/events")
       .then((res) => res.json())
