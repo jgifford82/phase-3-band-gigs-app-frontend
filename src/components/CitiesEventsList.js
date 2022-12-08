@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const CitiesEventsList = ({ cities }) => {
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
 
   // map out cities events
   // put delete event & update here
