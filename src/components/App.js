@@ -32,9 +32,9 @@ const App = () => {
   }, []);
 
   // This updates state responsible for rendering events when a new event is added.
-  // Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsContainer).
+  // Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsList).
   function handleAddEvent(newEvent) {
-    // console.log("In EventsContainer:", newMeet);
+    // console.log("In EventsList:", newMeet);
     setEvents([...events, newEvent]);
   }
 
