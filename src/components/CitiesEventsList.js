@@ -13,8 +13,8 @@ const CitiesEventsList = ({ cities }) => {
 
   // need to find all events with city id that equals the params id
   const find = cities.find((city) => city.id == id);
-  console.log(find);
-  console.log(find.events);
+  // console.log(find);
+  // console.log(find.events);
 
   // Need to play around with this more. When a city is clicked, it's only showing the events that match city id 12
   // useEffect(() => {
