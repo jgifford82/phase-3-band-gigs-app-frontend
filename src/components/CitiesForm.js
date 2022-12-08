@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const CitiesForm = () => {
+const CitiesForm = ({ onAddCity }) => {
   const initialValues = {
-    city: "",
+    name: "",
   };
 
   // This state sets the default form input value as an object with empty strings.
@@ -24,6 +24,27 @@ const CitiesForm = () => {
     console.log(values);
   };
 
+  function handleSubmit(event) {
+    // prevent page refresh on submit:
+    event.preventDefault();
+    // console.log("submitted");
+    // console.log(values);
+
+    fetch("http://localhost:9292/cities", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((r) => r.json())
+      // .then((data) => console.log(data));
+      .then((newCity) => onAddCity(newCity));
+
+    // clear input fields on submit by updating values state:
+    setValues(initialValues);
+  }
+
   return (
     <div>
       CitiesForm
@@ -33,14 +54,14 @@ const CitiesForm = () => {
         sx={{ flexGrow: 1 }}
         align="center"
       >
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <span style={{ fontWeight: "bold" }}>Add New City:</span>
             <input
               type="text"
-              name="city"
-              placeholder="City"
-              value={values.city}
+              name="name"
+              placeholder="City Name"
+              value={values.name}
               onChange={handleInputChange}
             />
           </label>
