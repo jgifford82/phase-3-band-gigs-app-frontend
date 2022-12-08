@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CitiesForm from "./CitiesForm";
 
 const CitiesList = ({ cities }) => {
   //  Don't need the click handler since Link makes it clickable and navigates to the city's events
@@ -22,7 +23,13 @@ const CitiesList = ({ cities }) => {
       </Link>
     </ul>
   ));
-  return <div>CitiesList {renderCities}</div>;
+  return (
+    <div>
+      <CitiesForm />
+      <br></br>
+      CitiesList {renderCities}
+    </div>
+  );
 };
 
 export default CitiesList;
