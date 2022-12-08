@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import EventsForm from "./EventsForm";
 
-const EventsList = ({ events, onDeleteEvent }) => {
+const EventsList = ({ events, onDeleteEvent, onAddEvent }) => {
   // console.log(events);
 
   function handleDeleteClick(e, event) {
@@ -24,7 +25,13 @@ const EventsList = ({ events, onDeleteEvent }) => {
     </ul>
   ));
 
-  return <div>EventsList {renderEvents}</div>;
+  return (
+    <div>
+      <EventsForm onAddEvent={onAddEvent} />
+      <br></br>
+      <br></br>EventsList {renderEvents}
+    </div>
+  );
 };
 
 export default EventsList;
