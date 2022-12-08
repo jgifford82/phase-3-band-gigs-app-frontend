@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
 const CitiesForm = () => {
+  const initialValues = {
+    city: "",
+  };
+
+  // This state sets the default form input value as an object with empty strings.
+  const [values, setValues] = useState(initialValues);
+
+  // This function handles all form inputs with a single onChange handler.
+  // Destructured name & value attributes from input fields to reference the key/value pairs when updating state.
+  // onChange prop added to the input to call handleInputChange
+  const handleInputChange = (e) => {
+    //const name = e.target.name
+    //const value = e.target.value
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    console.log(values);
+  };
+
   return (
     <div>
       CitiesForm
@@ -18,8 +40,8 @@ const CitiesForm = () => {
               type="text"
               name="city"
               placeholder="City"
-              // value={values.band}
-              // onChange={handleInputChange}
+              value={values.city}
+              onChange={handleInputChange}
             />
           </label>
           <input type="submit" value="Submit" />
