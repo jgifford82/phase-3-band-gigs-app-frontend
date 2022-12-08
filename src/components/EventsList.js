@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EventsForm from "./EventsForm";
-
-const EventsList = ({ events, onDeleteEvent, onAddEvent }) => {
+// removed onAddEvent from props
+const EventsList = ({ events, onDeleteEvent }) => {
   // console.log(events);
 
   function handleDeleteClick(e, event) {
@@ -27,7 +27,8 @@ const EventsList = ({ events, onDeleteEvent, onAddEvent }) => {
 
   return (
     <div>
-      <EventsForm onAddEvent={onAddEvent} />
+      {/* removed onAddEvent={onAddEvent} from Eventsform props*/}
+      <EventsForm />
       <br></br>
       <br></br>EventsList {renderEvents}
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-
-const EventsForm = ({ onAddEvent }) => {
+// removed { onAddEvent } from props
+const EventsForm = () => {
   const initialValues = {
     band: "",
     date: "",
@@ -40,10 +40,9 @@ const EventsForm = ({ onAddEvent }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    })
-      .then((r) => r.json())
-      // .then((data) => console.log(data));
-      .then((newEvent) => onAddEvent(newEvent));
+    }).then((r) => r.json());
+    // .then((data) => console.log(data));
+    // .then((newEvent) => (newEvent));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
