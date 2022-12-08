@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CitiesForm from "./CitiesForm";
 
-const CitiesList = ({ cities }) => {
+const CitiesList = ({ cities, onAddCity }) => {
   //  Don't need the click handler since Link makes it clickable and navigates to the city's events
   // This makes each city clickable and console logs the id of the clicked city and the events associated with that city.
   // function handleClick(id, events) {
@@ -25,7 +25,7 @@ const CitiesList = ({ cities }) => {
   ));
   return (
     <div>
-      <CitiesForm />
+      <CitiesForm onAddCity={onAddCity} />
       <br></br>
       CitiesList {renderCities}
     </div>
