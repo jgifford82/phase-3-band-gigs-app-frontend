@@ -2,35 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const CitiesEventsList = ({ cities }) => {
-  // const [events, setEvents] = useState([]);
+  // put post, delete, & patch here
 
-  // map out cities events
-  // put delete event & update here
-
-  // useParams returns an object with key value pairs, so need to destructure the id value out of the useParams object
+  // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
   const { id } = useParams();
   // console.log(id);
 
-  // need to find all events with city id that equals the params id
+  // find all events with city id that equals the params id
   const foundCity = cities.find((city) => city.id == id);
-  // console.log(find);
-  // console.log(find.events);
+  // console.log(foundCity);
+  // console.log(foundCity.events);
 
-  // Need to play around with this more. When a city is clicked, it's only showing the events that match city id 12
-  // useEffect(() => {
-  //   const find = cities.find((city) => city.id == id);
-  //   // console.log(cities);
-  //   // console.log(find);
-  //   // console.log(id);
-  //   // console.log(find.events);
-  //   setEvents(find.events);
-  // }, []);
-
-  // , [events]
-
-  // console.log(events);
-
-  // if using the useEffect above to update events state, change find.events.map to just events.map below.
   const renderEvents = foundCity.events.map((event) => (
     <ul key={event.id}>
       <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date} //{" "}
