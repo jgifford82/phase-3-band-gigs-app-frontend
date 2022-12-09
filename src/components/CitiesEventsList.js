@@ -12,7 +12,7 @@ const CitiesEventsList = ({ cities }) => {
   // console.log(id);
 
   // need to find all events with city id that equals the params id
-  const find = cities.find((city) => city.id == id);
+  const foundCity = cities.find((city) => city.id == id);
   // console.log(find);
   // console.log(find.events);
 
@@ -31,7 +31,7 @@ const CitiesEventsList = ({ cities }) => {
   // console.log(events);
 
   // if using the useEffect above to update events state, change find.events.map to just events.map below.
-  const renderEvents = find.events.map((event) => (
+  const renderEvents = foundCity.events.map((event) => (
     <ul key={event.id}>
       <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date} //{" "}
       {event.time} at {event.venue} for ${event.price}
