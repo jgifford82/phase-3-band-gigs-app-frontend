@@ -15,6 +15,7 @@ const CitiesEventsList = ({ cities }) => {
 
   const renderEvents = foundCity.events.map((event) => (
     <ul key={event.id}>
+      <button>X</button>
       <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date} //{" "}
       {event.time} at {event.venue} for ${event.price}
     </ul>
