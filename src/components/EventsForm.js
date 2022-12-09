@@ -10,10 +10,10 @@ const EventsForm = ({ onAddEvent }) => {
     price: "",
   };
 
-  // This state sets the default form input values as an object with empty strings.
+  // State sets default form input values as an object with empty strings.
   const [values, setValues] = useState(initialValues);
 
-  // This function handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
+  // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
   const handleInputChange = (e) => {
     //const name = e.target.name
     //const value = e.target.value
