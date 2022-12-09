@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-// removed { onAddEvent } from props
-const EventsForm = () => {
+
+const EventsForm = ({ onAddEvent }) => {
   const initialValues = {
     band: "",
     date: "",
@@ -13,9 +13,7 @@ const EventsForm = () => {
   // This state sets the default form input values as an object with empty strings.
   const [values, setValues] = useState(initialValues);
 
-  // This function handles all form inputs with a single onChange handler.
-  // Destructured name & value attributes from input fields to reference the key/value pairs when updating state.
-  // onChange prop added to each input to call handleInputChange
+  // This function handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
   const handleInputChange = (e) => {
     //const name = e.target.name
     //const value = e.target.value
@@ -40,9 +38,10 @@ const EventsForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }).then((r) => r.json());
-    // .then((data) => console.log(data));
-    // .then((newEvent) => (newEvent));
+    })
+      .then((r) => r.json())
+      // .then((data) => console.log(data));
+      .then((newEvent) => onAddEvent(newEvent));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
