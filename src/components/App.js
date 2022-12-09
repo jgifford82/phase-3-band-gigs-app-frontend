@@ -35,10 +35,10 @@ const App = () => {
   }, []);
 
   // This updates state responsible for rendering cities when a new city is added. Callback function is passed as a prop to child (CitiesForm) so the new city can be sent up to parent (CitiesList).
-  // function handleAddCity(newCity) {
-  //   console.log("In CitiesList:", newCity);
-  //   setCities([...cities, newCity]);
-  // }
+  function handleAddCity(newCity) {
+    // console.log("In CitiesList:", newCity);
+    setCities([...cities, newCity]);
+  }
 
   // This updates state responsible for rendering events when a new event is added. Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsList).
   // function handleAddEvent(newEvent) {
@@ -75,7 +75,7 @@ const App = () => {
         <Route
           path="/cities"
           // removed onAddCity={handleAddCity} from CitiesList below
-          element={<CitiesList cities={cities} />}
+          element={<CitiesList cities={cities} onAddCity={handleAddCity} />}
         />
         <Route
           path="/cities/:id"

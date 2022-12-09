@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 // removed { onAddCity } from props below
-const CitiesForm = () => {
+const CitiesForm = ({ onAddCity }) => {
   const initialValues = {
     name: "",
   };
@@ -36,9 +36,10 @@ const CitiesForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }).then((r) => r.json());
-    // .then((data) => console.log(data));
-    // .then((newCity) => onAddCity(newCity));
+    })
+      .then((r) => r.json())
+      // .then((data) => console.log(data));
+      .then((newCity) => onAddCity(newCity));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
