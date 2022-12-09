@@ -7,7 +7,7 @@ import EventsList from "./EventsList.js";
 import CitiesEventsList from "./CitiesEventsList";
 import CitiesList from "./CitiesList";
 // import BrowserRouter as Router for easier reference in code below.
-// use Routes instead of Switch, and wrap everything in Routes.
+// use Routes instead of Switch, wrap everything in Routes.
 // Keep NavBar within Router below so we can use the links.
 
 const App = () => {
@@ -37,7 +37,6 @@ const App = () => {
     setCities([...cities, newCity]);
   }
 
-  // This updates state responsible for rendering events when a new event is added, which refreshes the page so the new event is displayed. Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsList).
   function handleAddEvent(newEvent) {
     // console.log("In EventsList:", newEvent);
     setEvents([...events, newEvent]);
