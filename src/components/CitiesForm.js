@@ -22,9 +22,9 @@ const CitiesForm = ({ onAddCity }) => {
     console.log(values);
   };
 
-  function handleSubmit(event) {
+  function handleSubmit(e) {
     // prevent page refresh on submit:
-    event.preventDefault();
+    e.preventDefault();
     // console.log("submitted");
     // console.log(values);
 
