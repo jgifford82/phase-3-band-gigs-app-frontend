@@ -16,10 +16,7 @@ const App = () => {
   // console.log(cities);
   // console.log(cities.events);
 
-  const nestedEvents = cities.map((city) => city.events);
-  console.log(nestedEvents);
-
-  // This fetches the data from backend server and sets the state with that data. Empty dependencies array means the side effect runs only the first time the component renders.
+  // Fetches data from backend server & sets state with that data. Empty dependencies array = side effect only runs 1st time component renders.
   useEffect(() => {
     fetch("http://localhost:9292/cities")
       .then((res) => res.json())
@@ -34,37 +31,17 @@ const App = () => {
       .then((data) => setEvents(data));
   }, []);
 
-  // This updates state responsible for rendering cities when a new city is added. Callback function is passed as a prop to child (CitiesForm) so the new city can be sent up to parent (CitiesList).
+  // Updates state responsible for rendering cities when new city is added, which refreshes the page to display new city. Callback function passed as a prop to child (CitiesForm) so the new city can be sent up to parent (CitiesList).
   function handleAddCity(newCity) {
     // console.log("In CitiesList:", newCity);
     setCities([...cities, newCity]);
   }
 
-  // This updates state responsible for rendering events when a new event is added. Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsList).
-  // function handleAddEvent(newEvent) {
-  //   console.log("In EventsList:", newEvent);
-  //   // setEvents([...events, newEvent]);
-  // }
-
-  function handleDeleteEvent(deletedEvent) {
-    // console.log("handle delete Event", deletedEvent);
-    // const test = events.map((event) => event.id);
-    // console.log("handle delete event", test);
-    const testB = events.filter((event) => event.id !== deletedEvent.id);
-    console.log("handle delete event", testB);
-    // const updatedEvents = events.filter((event) => console.log(deletedEvent.id));
-    // const updatedEvents = events.filter((event) => event.id !== deletedEvent.id);
-    // setEvents(updatedEvents);
+  // This updates state responsible for rendering events when a new event is added, which refreshes the page so the new event is displayed. Callback function is passed as a prop to child (EventsForm) so the new event can be sent up to parent (EventsList).
+  function handleAddEvent(newEvent) {
+    // console.log("In EventsList:", newEvent);
+    setEvents([...events, newEvent]);
   }
-
-  // This is an example of code for onDelete function:
-  //   const newCities = cities.map((city) => {
-  //     return {
-
-  //       ...city,
-  //         events: city.events.filter((event) => event.id !== deletedEvent.id)
-  //     }}
-  // setCities(newCities)
 
   return (
     <Router>
@@ -74,7 +51,6 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route
           path="/cities"
-          // removed onAddCity={handleAddCity} from CitiesList below
           element={<CitiesList cities={cities} onAddCity={handleAddCity} />}
         />
         <Route
@@ -83,13 +59,7 @@ const App = () => {
         />
         <Route
           path="/events"
-          element={
-            <EventsList
-              events={events}
-              // onAddEvent={handleAddEvent}
-              onDeleteEvent={handleDeleteEvent}
-            />
-          }
+          element={<EventsList events={events} onAddEvent={handleAddEvent} />}
         />
       </Routes>
     </Router>
