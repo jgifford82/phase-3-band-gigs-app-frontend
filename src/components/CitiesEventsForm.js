@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
 const CitiesEventsForm = () => {
+  const initialValues = {
+    band: "",
+    date: "",
+    time: "",
+    venue: "",
+    price: "",
+  };
+
+  // State sets default form input values as object with empty strings.
+  const [values, setValues] = useState(initialValues);
+
+  // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
+  const handleInputChange = (e) => {
+    //const name = e.target.name
+    //const value = e.target.value
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    console.log(values);
+  };
+
   function handleSubmit(e) {
     // prevent page refresh on submit:
     e.preventDefault();
@@ -39,36 +63,36 @@ const CitiesEventsForm = () => {
               type="text"
               name="band"
               placeholder="Band Name"
-              // value={values.band}
-              // onChange={handleInputChange}
+              value={values.band}
+              onChange={handleInputChange}
             />
             <input
               type="text"
               name="date"
               placeholder="Date format YYYY-MM-DD"
-              // value={values.date}
-              // onChange={handleInputChange}
+              value={values.date}
+              onChange={handleInputChange}
             />
             <input
               type="text"
               name="time"
               placeholder="Time"
-              // value={values.time}
-              // onChange={handleInputChange}
+              value={values.time}
+              onChange={handleInputChange}
             />
             <input
               type="text"
               name="venue"
               placeholder="Venue"
-              // value={values.venue}
-              // onChange={handleInputChange}
+              value={values.venue}
+              onChange={handleInputChange}
             />
             <input
               type="text"
               name="price"
               placeholder="Price (number only, no $)"
-              // value={values.price}
-              // onChange={handleInputChange}
+              value={values.price}
+              onChange={handleInputChange}
             />
           </label>
           <input type="submit" value="Submit" />
