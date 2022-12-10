@@ -1,56 +1,56 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
+// { onAddEvent }
+const EventsForm = () => {
+  // const initialValues = {
+  //   band: "",
+  //   date: "",
+  //   time: "",
+  //   venue: "",
+  //   price: "",
+  // };
 
-const EventsForm = ({ onAddEvent }) => {
-  const initialValues = {
-    band: "",
-    date: "",
-    time: "",
-    venue: "",
-    price: "",
-  };
+  // // State sets default form input values as object with empty strings.
+  // const [values, setValues] = useState(initialValues);
 
-  // State sets default form input values as object with empty strings.
-  const [values, setValues] = useState(initialValues);
+  // // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
+  // const handleInputChange = (e) => {
+  //   //const name = e.target.name
+  //   //const value = e.target.value
+  //   const { name, value } = e.target;
 
-  // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
-  const handleInputChange = (e) => {
-    //const name = e.target.name
-    //const value = e.target.value
-    const { name, value } = e.target;
+  //   setValues({
+  //     ...values,
+  //     [name]: value,
+  //   });
+  //   // console.log(values);
+  // };
 
-    setValues({
-      ...values,
-      [name]: value,
-    });
-    // console.log(values);
-  };
+  // function handleSubmit(event) {
+  //   // prevent page refresh on submit:
+  //   event.preventDefault();
+  //   // console.log("submitted");
+  //   // console.log(values);
 
-  function handleSubmit(event) {
-    // prevent page refresh on submit:
-    event.preventDefault();
-    // console.log("submitted");
-    // console.log(values);
+  //   fetch("http://localhost:9292/events", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(values),
+  //   })
+  //     .then((r) => r.json())
+  //     // .then((data) => console.log(data));
+  //     .then((newEvent) => onAddEvent(newEvent));
 
-    fetch("http://localhost:9292/events", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((r) => r.json())
-      // .then((data) => console.log(data));
-      .then((newEvent) => onAddEvent(newEvent));
-
-    // clear input fields on submit by updating values state:
-    setValues(initialValues);
-  }
+  //   // clear input fields on submit by updating values state:
+  //   setValues(initialValues);
+  // }
 
   return (
     <div>
       EventsForm
-      <Typography
+      {/* <Typography
         variant="h6"
         component="div"
         sx={{ flexGrow: 1 }}
@@ -97,7 +97,7 @@ const EventsForm = ({ onAddEvent }) => {
           </label>
           <input type="submit" value="Submit" />
         </form>
-      </Typography>
+      </Typography> */}
     </div>
   );
 };

@@ -37,10 +37,11 @@ const App = () => {
     setCities([...cities, newCity]);
   }
 
-  function handleAddEvent(newEvent) {
-    // console.log("In EventsList:", newEvent);
-    setEvents([...events, newEvent]);
-  }
+  // addEvent handler originally used on the EventsForm component
+  // function handleAddEvent(newEvent) {
+  //   // console.log("In EventsList:", newEvent);
+  //   setEvents([...events, newEvent]);
+  // }
 
   function handleDeleteEvent(deletedEvent) {
     // console.log("handle delete Event", deletedEvent);
@@ -76,7 +77,8 @@ const App = () => {
         />
         <Route
           path="/events"
-          element={<EventsList events={events} onAddEvent={handleAddEvent} />}
+          // onAddEvent={handleAddEvent}
+          element={<EventsList events={events} />}
         />
       </Routes>
     </Router>

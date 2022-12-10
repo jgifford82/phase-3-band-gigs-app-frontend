@@ -1,7 +1,7 @@
 import React from "react";
 import EventsForm from "./EventsForm";
-
-const EventsList = ({ events, onAddEvent }) => {
+// , onAddEvent
+const EventsList = ({ events }) => {
   // console.log(events);
 
   const renderEvents = events.map((event) => (
@@ -13,7 +13,8 @@ const EventsList = ({ events, onAddEvent }) => {
 
   return (
     <div>
-      <EventsForm onAddEvent={onAddEvent} />
+      {/* onAddEvent={onAddEvent} */}
+      <EventsForm />
       <br></br>
       <br></br>EventsList {renderEvents}
     </div>
