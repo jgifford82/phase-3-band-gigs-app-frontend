@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const CitiesEventsForm = () => {
+const CitiesEventsForm = ({ id }) => {
+  // console.log(id);
+
   const initialValues = {
     band: "",
     date: "",
     time: "",
     venue: "",
     price: "",
+    city_id: id,
   };
+  // console.log(initialValues);
 
   // State sets default form input values as object with empty strings.
   const [values, setValues] = useState(initialValues);
+  // console.log(values);
 
   // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
   const handleInputChange = (e) => {
@@ -31,20 +36,21 @@ const CitiesEventsForm = () => {
     e.preventDefault();
     console.log("submitted");
     // console.log(values);
+    // console.log(id);
 
-    // fetch("http://localhost:9292/events", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(values),
-    // })
-    //   .then((r) => r.json())
-    //   .then((data) => console.log(data));
+    fetch("http://localhost:9292/events", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
     // .then((newEvent) => onAddEvent(newEvent));
 
     // clear input fields on submit by updating values state:
-    // setValues(initialValues);
+    setValues(initialValues);
   }
 
   return (
