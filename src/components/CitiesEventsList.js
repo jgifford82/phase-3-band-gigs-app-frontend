@@ -33,7 +33,7 @@ const CitiesEventsList = ({ cities, onDeleteEvent }) => {
 
   return (
     <div>
-      <CitiesEventsForm />
+      <CitiesEventsForm id={id} />
       CitiesEventsList {renderEvents}
     </div>
   );
