@@ -42,6 +42,19 @@ const App = () => {
     setEvents([...events, newEvent]);
   }
 
+  function handleDeleteEvent(deletedEvent) {
+    // console.log("handle delete Event", deletedEvent);
+    // newCitites filters cities array down to all cities whose id doesn't match the deleted id.
+    const newCities = cities.map((city) => {
+      return {
+        ...city,
+        events: city.events.filter((event) => event.id !== deletedEvent.id),
+      };
+    });
+    // console.log(newCities);
+    setCities(newCities);
+  }
+
   return (
     <Router>
       <NavBar />
@@ -54,7 +67,12 @@ const App = () => {
         />
         <Route
           path="/cities/:id"
-          element={<CitiesEventsList cities={cities} />}
+          element={
+            <CitiesEventsList
+              cities={cities}
+              onDeleteEvent={handleDeleteEvent}
+            />
+          }
         />
         <Route
           path="/events"
