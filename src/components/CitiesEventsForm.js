@@ -34,7 +34,7 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
   function handleSubmit(e) {
     // prevent page refresh on submit:
     e.preventDefault();
-    console.log("submitted");
+    // console.log("submitted");
     // console.log(values);
     // console.log(id);
 
@@ -46,7 +46,7 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
       body: JSON.stringify(values),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data))
+      // .then((data) => console.log(data))
       .then((newEvent) => onAddEvent(newEvent));
 
     // clear input fields on submit by updating values state:
