@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EventsForm from "./EventsForm";
 
 const EventsList = ({ events, onAddEvent }) => {
