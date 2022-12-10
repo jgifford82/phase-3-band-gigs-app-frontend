@@ -56,6 +56,11 @@ const App = () => {
     setCities(newCities);
   }
 
+  function handleAddEvent(newEvent) {
+    console.log("In EventsList:", newEvent);
+    // setEvents([...events, newEvent]);
+  }
+
   return (
     <Router>
       <NavBar />
@@ -72,6 +77,7 @@ const App = () => {
             <CitiesEventsList
               cities={cities}
               onDeleteEvent={handleDeleteEvent}
+              onAddEvent={handleAddEvent}
             />
           }
         />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const CitiesEventsForm = ({ id }) => {
+const CitiesEventsForm = ({ id, onAddEvent }) => {
   // console.log(id);
 
   const initialValues = {
@@ -28,7 +28,7 @@ const CitiesEventsForm = ({ id }) => {
       ...values,
       [name]: value,
     });
-    console.log(values);
+    // console.log(values);
   };
 
   function handleSubmit(e) {
@@ -46,8 +46,8 @@ const CitiesEventsForm = ({ id }) => {
       body: JSON.stringify(values),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
-    // .then((newEvent) => onAddEvent(newEvent));
+      .then((data) => console.log(data))
+      .then((newEvent) => onAddEvent(newEvent));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
