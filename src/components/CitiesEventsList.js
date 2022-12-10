@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import CitiesEventsForm from "./CitiesEventsForm";
 
 const CitiesEventsList = ({ cities, onDeleteEvent }) => {
   // put post, delete, & patch here
@@ -30,7 +31,12 @@ const CitiesEventsList = ({ cities, onDeleteEvent }) => {
       .then((deletedEvent) => onDeleteEvent(deletedEvent));
   }
 
-  return <div>CitiesEventsList {renderEvents}</div>;
+  return (
+    <div>
+      <CitiesEventsForm />
+      CitiesEventsList {renderEvents}
+    </div>
+  );
 };
 
 export default CitiesEventsList;
