@@ -1,6 +1,5 @@
 import React from "react";
-import EventsForm from "./EventsForm";
-// , onAddEvent
+
 const EventsList = ({ events }) => {
   // console.log(events);
 
@@ -13,8 +12,6 @@ const EventsList = ({ events }) => {
 
   return (
     <div>
-      {/* onAddEvent={onAddEvent} */}
-      <EventsForm />
       <br></br>
       <br></br>EventsList {renderEvents}
     </div>
