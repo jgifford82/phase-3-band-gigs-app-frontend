@@ -36,7 +36,7 @@ const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
     <div>
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
       <br></br>
-      <CitiesEventsEditForm />
+      <CitiesEventsEditForm id={id} />
       <br></br>
       CitiesEventsList {renderEvents}
     </div>
