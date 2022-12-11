@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
 const CitiesEventsEditForm = ({ id, onEditEvent }) => {
   //   console.log(id);
+
+  // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
+  //   const eventId = useParams();
+  // this useParams is loggin the city's id
+  //   console.log(eventId);
 
   const initialValues = {
     band: "",
