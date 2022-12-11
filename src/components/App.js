@@ -37,12 +37,6 @@ const App = () => {
     setCities([...cities, newCity]);
   }
 
-  // addEvent handler originally used on the EventsForm component
-  // function handleAddEvent(newEvent) {
-  //   // console.log("In EventsList:", newEvent);
-  //   setEvents([...events, newEvent]);
-  // }
-
   function handleDeleteEvent(deletedEvent) {
     // console.log("handle delete Event", deletedEvent);
     // newCitites filters cities array down to all cities whose id doesn't match the deleted id.
@@ -59,6 +53,14 @@ const App = () => {
   function handleAddEvent(newEvent) {
     console.log("In EventsList:", newEvent);
     // setEvents([...events, newEvent]);
+    const updateCities = cities.map((city) => {
+      return {
+        ...city,
+        events: city.events.map((event) => event, newEvent),
+      };
+    });
+    // console.log(updateCities);
+    setCities(updateCities);
   }
 
   return (
@@ -83,7 +85,6 @@ const App = () => {
         />
         <Route
           path="/events"
-          // onAddEvent={handleAddEvent}
           element={<EventsList events={events} />}
         />
       </Routes>
