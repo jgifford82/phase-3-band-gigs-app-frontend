@@ -30,22 +30,22 @@ const CitiesEventsEditForm = ({ id, onEditEvent }) => {
   const [values, setValues] = useState(initialValues);
   //   console.log(values);
 
-  function handleSubmit(e) {
+  function handleSubmit(e, event) {
     // prevent page refresh on submit:
     e.preventDefault();
-    console.log("submitted");
-    console.log(values);
-    console.log(id);
+    // console.log("submitted");
+    // console.log(values);
+    // console.log(id);
 
-    // fetch("http://localhost:9292/events", {
-    //   method: "POST",
+    // fetch(`http://localhost:9292/events/${event.id}`, {
+    //   method: "PATCH",
     //   headers: {
     //     "Content-Type": "application/json",
     //   },
     //   body: JSON.stringify(values),
     // })
     //   .then((r) => r.json())
-    // .then((data) => console.log(data))
+    //   .then((data) => console.log(data));
     //   .then((newEvent) => onEditEvent(newEvent));
 
     // clear input fields on submit by updating values state:
