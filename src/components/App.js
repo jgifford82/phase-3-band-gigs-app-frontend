@@ -63,6 +63,10 @@ const App = () => {
     setCities(updateCities);
   }
 
+  function handleEditEvent(editEvent) {
+    console.log("In EventsList:", editEvent);
+  }
+
   return (
     <Router>
       <NavBar />
@@ -80,13 +84,11 @@ const App = () => {
               cities={cities}
               onDeleteEvent={handleDeleteEvent}
               onAddEvent={handleAddEvent}
+              onEditEvent={handleEditEvent}
             />
           }
         />
-        <Route
-          path="/events"
-          element={<EventsList events={events} />}
-        />
+        <Route path="/events" element={<EventsList events={events} />} />
       </Routes>
     </Router>
   );
