@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CitiesEventsEditForm from "./CitiesEventsEditForm";
 import CitiesEventsForm from "./CitiesEventsForm";
 
@@ -23,8 +24,10 @@ const CitiesEventsList = ({
   const renderEvents = foundCity.events.map((event) => (
     <ul key={event.id}>
       <button onClick={(e) => handleDeleteClick(e, event)}>X</button>
-      <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date} //{" "}
-      {event.time} at {event.venue} for ${event.price}
+      <Link to={`/events/${event.id}`} style={{ fontWeight: "bold" }}>
+        {event.band}: {event.date} // {event.time} at {event.venue} for $
+        {event.price}{" "}
+      </Link>
     </ul>
   ));
 
