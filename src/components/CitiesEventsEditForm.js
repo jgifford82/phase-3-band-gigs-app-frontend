@@ -30,6 +30,28 @@ const CitiesEventsEditForm = ({ id }) => {
   const [values, setValues] = useState(initialValues);
   //   console.log(values);
 
+  function handleSubmit(e) {
+    // prevent page refresh on submit:
+    e.preventDefault();
+    console.log("submitted");
+    console.log(values);
+    console.log(id);
+
+    // fetch("http://localhost:9292/events", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(values),
+    // })
+    //   .then((r) => r.json())
+    // .then((data) => console.log(data))
+    //   .then((newEvent) => onAddEvent(newEvent));
+
+    // clear input fields on submit by updating values state:
+    setValues(initialValues);
+  }
+
   return (
     <div>
       CitiesEventsEditForm
@@ -39,8 +61,7 @@ const CitiesEventsEditForm = ({ id }) => {
         sx={{ flexGrow: 1 }}
         align="center"
       >
-        {/* onSubmit={handleSubmit} */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <span style={{ fontWeight: "bold" }}>Update Existing Event:</span>
             <input
