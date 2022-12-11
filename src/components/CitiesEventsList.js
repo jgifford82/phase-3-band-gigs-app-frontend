@@ -3,7 +3,12 @@ import { useParams } from "react-router-dom";
 import CitiesEventsEditForm from "./CitiesEventsEditForm";
 import CitiesEventsForm from "./CitiesEventsForm";
 
-const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
+const CitiesEventsList = ({
+  cities,
+  onDeleteEvent,
+  onAddEvent,
+  onEditEvent,
+}) => {
   // put post, delete, & patch here
 
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
@@ -36,7 +41,7 @@ const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
     <div>
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
       <br></br>
-      <CitiesEventsEditForm id={id} />
+      <CitiesEventsEditForm id={id} onEditEvent={onEditEvent} />
       <br></br>
       CitiesEventsList {renderEvents}
     </div>
