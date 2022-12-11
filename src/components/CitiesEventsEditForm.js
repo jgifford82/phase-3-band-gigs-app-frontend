@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const CitiesEventsEditForm = ({ id }) => {
+const CitiesEventsEditForm = ({ id, onEditEvent }) => {
   //   console.log(id);
 
   const initialValues = {
@@ -46,7 +46,7 @@ const CitiesEventsEditForm = ({ id }) => {
     // })
     //   .then((r) => r.json())
     // .then((data) => console.log(data))
-    //   .then((newEvent) => onAddEvent(newEvent));
+    //   .then((newEvent) => onEditEvent(newEvent));
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
