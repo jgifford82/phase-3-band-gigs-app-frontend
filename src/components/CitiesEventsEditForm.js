@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const CitiesEventsEditForm = () => {
+const CitiesEventsEditForm = ({ id }) => {
+  //   console.log(id);
+
   return (
     <div>
       CitiesEventsEditForm
