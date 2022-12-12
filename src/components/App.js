@@ -22,7 +22,7 @@ const App = () => {
       .then((res) => res.json())
       //   .then((data) => console.log(data));
       .then((data) => setCities(data));
-  }, []);
+  });
 
   useEffect(() => {
     fetch("http://localhost:9292/events")
