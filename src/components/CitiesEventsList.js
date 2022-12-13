@@ -26,7 +26,7 @@ const CitiesEventsList = ({
   const renderEvents = foundCity.events.map((event) => (
     <ul key={event.id}>
       <button onClick={(e) => handleDeleteClick(e, event)}>X</button> &nbsp;
-      <button onClick={() => handleEditClick()}>Edit</button> &nbsp;
+      <button onClick={(e) => handleEditClick(e, event)}>Edit</button> &nbsp;
       <Link to={`/events/${event.id}`} style={{ fontWeight: "bold" }}>
         {event.band}: {event.date} {event.time} at {event.venue} for $
         {event.price}{" "}
@@ -43,8 +43,10 @@ const CitiesEventsList = ({
       .then((deletedEvent) => onDeleteEvent(deletedEvent));
   }
 
-  function handleEditClick() {
+  function handleEditClick(e, event) {
     console.log("updating");
+    setIsEdit(!isEdit);
+    // console.log(isEdit);
   }
 
   return (
