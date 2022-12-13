@@ -25,7 +25,7 @@ const CitiesEventsList = ({
     <ul key={event.id}>
       <button onClick={(e) => handleDeleteClick(e, event)}>X</button>
       <Link to={`/events/${event.id}`} style={{ fontWeight: "bold" }}>
-        {event.band}: {event.date} // {event.time} at {event.venue} for $
+        {event.band}: {event.date} {event.time} at {event.venue} for $
         {event.price}{" "}
       </Link>
     </ul>
