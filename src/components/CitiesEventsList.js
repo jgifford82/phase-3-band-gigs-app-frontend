@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import CitiesEventsEditForm from "./CitiesEventsEditForm";
+// import { Link } from "react-router-dom";
+// import CitiesEventsEditForm from "./CitiesEventsEditForm";
 import CitiesEventsForm from "./CitiesEventsForm";
 
-const CitiesEventsList = ({
-  cities,
-  onDeleteEvent,
-  onAddEvent,
-  onEditEvent,
-}) => {
+//   onEditEvent,
+const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
   // put post, delete, & patch here
+
   const [isEdit, setIsEdit] = useState(false);
   // console.log(isEdit);
 
@@ -27,10 +24,8 @@ const CitiesEventsList = ({
     <ul key={event.id}>
       <button onClick={(e) => handleDeleteClick(e, event)}>X</button> &nbsp;
       <button onClick={(e) => handleEditClick(e, event)}>Edit</button> &nbsp;
-      <Link to={`/events/${event.id}`} style={{ fontWeight: "bold" }}>
-        {event.band}: {event.date} {event.time} at {event.venue} for $
-        {event.price}{" "}
-      </Link>
+      <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date}{" "}
+      {event.time} at {event.venue} for ${event.price}{" "}
     </ul>
   ));
 
@@ -53,7 +48,7 @@ const CitiesEventsList = ({
     <div>
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
       <br></br>
-      <CitiesEventsEditForm id={id} onEditEvent={onEditEvent} />
+      {/* <CitiesEventsEditForm id={id} onEditEvent={onEditEvent} /> */}
       <br></br>
       CitiesEventsList {renderEvents}
     </div>
