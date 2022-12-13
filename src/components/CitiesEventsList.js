@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CitiesEventsEditForm from "./CitiesEventsEditForm";
@@ -11,6 +11,8 @@ const CitiesEventsList = ({
   onEditEvent,
 }) => {
   // put post, delete, & patch here
+  const [isEdit, setIsEdit] = useState(false);
+  // console.log(isEdit);
 
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
   const { id } = useParams();
