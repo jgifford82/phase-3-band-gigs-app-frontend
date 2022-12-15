@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 
-const CitiesEventsEditForm = ({ event, onEditClick, id, onEditEvent }) => {
+const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
   //   console.log(id);
+
+  const eventId = event.id;
+  // console.log(eventId);
 
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
   //   const eventId = useParams();
@@ -35,19 +37,20 @@ const CitiesEventsEditForm = ({ event, onEditClick, id, onEditEvent }) => {
   function handleSubmit(e, event) {
     // prevent page refresh on submit:
     e.preventDefault();
-    console.log("submitted");
+    // console.log("submitted");
     console.log(values);
-    // console.log(id);
+    // console.log(eventId);
 
-    // fetch(`http://localhost:9292/events/${event.id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(values),
-    // })
-    //   .then((r) => r.json())
-    //   .then((data) => console.log(data));
+    // using eventId instead of event.id
+    fetch(`http://localhost:9292/events/${eventId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
     //   .then((newEvent) => onEditEvent(newEvent));
 
     // set isEdit state to !isEdit so the form is no longer displayed
