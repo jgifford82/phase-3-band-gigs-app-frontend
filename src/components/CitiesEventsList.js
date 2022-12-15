@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // import CitiesEventsEditForm from "./CitiesEventsEditForm";
 import CitiesEventsForm from "./CitiesEventsForm";
+import ShowCityEvent from "./ShowCityEvent.js";
 
 //   onEditEvent,
 const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
@@ -20,13 +21,14 @@ const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
   // console.log(foundCity);
   // console.log(foundCity.events);
 
+  // Map over the events for the specific city whose page is being viewed and pass down the event info to ShowCityEvent component.
   const renderEvents = foundCity.events.map((event) => (
-    <ul key={event.id}>
-      <button onClick={(e) => handleDeleteClick(e, event)}>X</button> &nbsp;
-      <button onClick={(e) => handleEditClick(e, event)}>Edit</button> &nbsp;
-      <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date}{" "}
-      {event.time} at {event.venue} for ${event.price}{" "}
-    </ul>
+    <ShowCityEvent
+      key={event.id}
+      event={event}
+      onDeleteClick={handleDeleteClick}
+      onEditSubmit={handleEditSubmit}
+    />
   ));
 
   function handleDeleteClick(e, event) {
@@ -38,10 +40,12 @@ const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
       .then((deletedEvent) => onDeleteEvent(deletedEvent));
   }
 
-  function handleEditClick(e, event) {
-    console.log("updating");
-    setIsEdit(!isEdit);
-    // console.log(isEdit);
+  function handleEditSubmit(e) {
+    // prevent page refresh on submit:
+    e.preventDefault();
+    // console.log("submitted");
+    // console.log(values);
+    // console.log(id);
   }
 
   return (
@@ -50,7 +54,8 @@ const CitiesEventsList = ({ cities, onDeleteEvent, onAddEvent }) => {
       <br></br>
       {/* <CitiesEventsEditForm id={id} onEditEvent={onEditEvent} /> */}
       <br></br>
-      CitiesEventsList {renderEvents}
+      CitiesEventsList
+      {renderEvents}
     </div>
   );
 };
