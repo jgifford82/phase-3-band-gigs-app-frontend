@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-const ShowCityEvent = ({
-  event,
-  onDeleteClick,
-  handleEditClick,
-  onEditSubmit,
-}) => {
+const ShowCityEvent = ({ event, onDeleteClick, onEditSubmit }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditClick(e, event) {
