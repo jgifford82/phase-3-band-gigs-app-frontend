@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import Typography from "@mui/material/Typography";
 
-const CitiesEventsEditForm = ({ id, onEditEvent }) => {
+const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
   //   console.log(id);
 
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
@@ -11,12 +10,9 @@ const CitiesEventsEditForm = ({ id, onEditEvent }) => {
   //   console.log(eventId);
 
   const initialValues = {
-    band: "",
     date: "",
     time: "",
     venue: "",
-    price: "",
-    city_id: id,
   };
   //   console.log(initialValues);
 
@@ -60,55 +56,33 @@ const CitiesEventsEditForm = ({ id, onEditEvent }) => {
 
   return (
     <div>
-      CitiesEventsEditForm
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ flexGrow: 1 }}
-        align="center"
-      >
-        <form onSubmit={handleSubmit}>
-          <label>
-            <span style={{ fontWeight: "bold" }}>Update Existing Event:</span>
-            <input
-              type="text"
-              name="band"
-              placeholder="Band Name"
-              value={values.band}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="date"
-              placeholder="Date format YYYY-MM-DD"
-              value={values.date}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="time"
-              placeholder="Time"
-              value={values.time}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="venue"
-              placeholder="Venue"
-              value={values.venue}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="price"
-              placeholder="Price (number only, no $)"
-              value={values.price}
-              onChange={handleInputChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      </Typography>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="date"
+          // placeholder="Date format YYYY-MM-DD"
+          value={event.date}
+          // value={values.date}
+          // onChange={handleInputChange}
+        />
+        <input
+          type="text"
+          name="time"
+          // placeholder="Time"
+          value={event.time}
+          // value={values.time}
+          // onChange={handleInputChange}
+        />
+        <input
+          type="text"
+          name="venue"
+          // placeholder="Venue"
+          value={event.venue}
+          // value={values.venue}
+          // onChange={handleInputChange}
+        />
+        <input type="submit" value="Submit Changes" />
+      </form>
     </div>
   );
 };
