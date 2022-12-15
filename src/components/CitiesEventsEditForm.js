@@ -25,7 +25,7 @@ const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
       ...values,
       [name]: value,
     });
-    // console.log(values);
+    console.log(values);
   };
 
   // State sets default form input values as object with empty strings.
@@ -60,26 +60,23 @@ const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
         <input
           type="text"
           name="date"
-          // placeholder="Date format YYYY-MM-DD"
-          value={event.date}
-          // value={values.date}
-          // onChange={handleInputChange}
+          placeholder={event.date}
+          value={values.date}
+          onChange={handleInputChange}
         />
         <input
           type="text"
           name="time"
-          // placeholder="Time"
-          value={event.time}
-          // value={values.time}
-          // onChange={handleInputChange}
+          placeholder={event.time}
+          value={values.time}
+          onChange={handleInputChange}
         />
         <input
           type="text"
           name="venue"
-          // placeholder="Venue"
-          value={event.venue}
-          // value={values.venue}
-          // onChange={handleInputChange}
+          placeholder={event.venue}
+          value={values.venue}
+          onChange={handleInputChange}
         />
         <input type="submit" value="Submit Changes" />
       </form>
