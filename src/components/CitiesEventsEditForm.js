@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
+const CitiesEventsEditForm = ({ event, onEditClick, id, onEditEvent }) => {
   //   console.log(id);
 
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
@@ -35,8 +35,8 @@ const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
   function handleSubmit(e, event) {
     // prevent page refresh on submit:
     e.preventDefault();
-    // console.log("submitted");
-    // console.log(values);
+    console.log("submitted");
+    console.log(values);
     // console.log(id);
 
     // fetch(`http://localhost:9292/events/${event.id}`, {
@@ -50,6 +50,10 @@ const CitiesEventsEditForm = ({ event, id, onEditEvent }) => {
     //   .then((data) => console.log(data));
     //   .then((newEvent) => onEditEvent(newEvent));
 
+    // set isEdit state to !isEdit so the form is no longer displayed
+    onEditClick();
+
+    // Not sure I need to clear input fields if the edit form goes away on Submit?
     // clear input fields on submit by updating values state:
     setValues(initialValues);
   }
