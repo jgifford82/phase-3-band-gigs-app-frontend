@@ -5,9 +5,9 @@ const ShowCityEvent = ({ event, onDeleteClick, onEditSubmit }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditClick(e, event) {
-    console.log("updating");
+    // console.log("updating");
     setIsEdit(!isEdit);
-    console.log(isEdit);
+    // console.log(isEdit);
   }
 
   const renderEvent = (
