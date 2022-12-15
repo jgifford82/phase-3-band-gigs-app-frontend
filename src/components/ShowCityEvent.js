@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const ShowCityEvent = ({
   event,
-  handleDeleteClick,
+  onDeleteClick,
   handleEditClick,
-  handleEditSubmit,
+  onEditSubmit,
 }) => {
   const [isEdit, setIsEdit] = useState(false);
 
@@ -16,7 +16,7 @@ const ShowCityEvent = ({
 
   const renderEvent = (
     <div key={event.id}>
-      <button onClick={(e) => handleDeleteClick(e, event)}>X</button> &nbsp;
+      <button onClick={(e) => onDeleteClick(e, event)}>X</button> &nbsp;
       <button onClick={(e) => handleEditClick(e, event)}>Edit</button> &nbsp;
       <span style={{ fontWeight: "bold" }}>{event.band}</span>: {event.date}{" "}
       {event.time} at {event.venue} for ${event.price}{" "}
@@ -25,10 +25,10 @@ const ShowCityEvent = ({
 
   const renderEditEvent = (
     <div key={event.id}>
-      <button onClick={(e) => handleDeleteClick(e, event)}>X</button> &nbsp;
+      <button onClick={(e) => onDeleteClick(e, event)}>X</button> &nbsp;
       <button onClick={(e) => handleEditClick(e, event)}>Edit</button> &nbsp;
       <span style={{ fontWeight: "bold" }}>{event.band}</span>:{" "}
-      <form onSubmit={handleEditSubmit}>
+      <form onSubmit={onEditSubmit}>
         <input value={event.date} /> <input value={event.time} /> at{" "}
         <input value={event.venue} />{" "}
         <input type="submit" value="Submit Changes" />
