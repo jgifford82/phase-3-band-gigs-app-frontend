@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CitiesEventsEditForm from "./CitiesEventsEditForm";
 
-const ShowCityEvent = ({ event, onDeleteClick, onEditEvent, onEditSubmit }) => {
+const ShowCityEvent = ({ event, onDeleteClick, onEditEvent }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditClick(e, event) {
@@ -29,11 +29,6 @@ const ShowCityEvent = ({ event, onDeleteClick, onEditEvent, onEditSubmit }) => {
         onEditClick={handleEditClick}
         onEditEvent={onEditEvent}
       />
-      {/* <form onSubmit={onEditSubmit}>
-        <input value={event.date} /> <input value={event.time} /> at{" "}
-        <input value={event.venue} />{" "}
-        <input type="submit" value="Submit Changes" />
-      </form>{" "} */}
       for ${event.price}{" "}
     </div>
   );
