@@ -6,11 +6,6 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
   const eventId = event.id;
   // console.log(eventId);
 
-  // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
-  //   const eventId = useParams();
-  // this useParams is loggin the city's id
-  //   console.log(eventId);
-
   const initialValues = {
     date: "",
     time: "",
@@ -27,7 +22,7 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
       ...values,
       [name]: value,
     });
-    console.log(values);
+    // console.log(values);
   };
 
   // State sets default form input values as object with empty strings.
@@ -50,8 +45,8 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
       body: JSON.stringify(values),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
-    //   .then((newEvent) => onEditEvent(newEvent));
+      // .then((data) => console.log(data))
+      .then((editEvent) => onEditEvent(editEvent));
 
     // set isEdit state to !isEdit so the form is no longer displayed
     onEditClick();
