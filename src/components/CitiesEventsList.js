@@ -39,14 +39,6 @@ const CitiesEventsList = ({
       .then((deletedEvent) => onDeleteEvent(deletedEvent));
   }
 
-  function handleEditSubmit(e) {
-    // prevent page refresh on submit:
-    e.preventDefault();
-    // console.log("submitted");
-    // console.log(values);
-    // console.log(id);
-  }
-
   return (
     <div>
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
