@@ -17,6 +17,7 @@ const App = () => {
   // console.log(cities.events);
 
   // Fetches data from backend server & sets state with that data. Empty dependencies array = side effect only runs 1st time component renders.
+
   useEffect(() => {
     fetch("http://localhost:9292/cities")
       .then((res) => res.json())
@@ -53,18 +54,35 @@ const App = () => {
   function handleAddEvent(newEvent) {
     console.log("In EventsList:", newEvent);
     // setEvents([...events, newEvent]);
+
     const updateCities = cities.map((city) => {
       return {
         ...city,
         events: city.events.map((event) => event, newEvent),
       };
     });
-    // console.log(updateCities);
+    console.log(updateCities);
+    debugger;
     setCities(updateCities);
   }
+  console.log(cities);
 
   function handleEditEvent(editEvent) {
     console.log("In EventsList:", editEvent);
+    const updateCities = cities.map((city) => {
+      return {
+        ...city,
+        events: city.events.map((event) => {
+          if (event.id === editEvent.id) {
+            return editEvent;
+          }
+          return event;
+        }),
+      };
+    });
+    // console.log(updateCities);
+    setCities(updateCities);
+    console.log(updateCities);
   }
 
   return (
