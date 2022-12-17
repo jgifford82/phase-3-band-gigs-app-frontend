@@ -45,7 +45,16 @@ const CitiesForm = ({ onAddCity }) => {
 
   return (
     <div>
-      CitiesForm
+      <br></br>
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{ flexGrow: 1 }}
+        align="center"
+      >
+        Don't see your city? Use the form to add it to the list!
+      </Typography>
+      <br></br>
       <Typography
         variant="h6"
         component="div"
