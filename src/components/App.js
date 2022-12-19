@@ -53,7 +53,7 @@ const App = () => {
   }
 
   function handleAddEvent(newEvent) {
-    console.log("In EventsList:", newEvent);
+    // console.log("In EventsList:", newEvent);
     // setEvents([...events, newEvent]);
 
     const updateCities = cities.map((city) => {
@@ -62,11 +62,10 @@ const App = () => {
         events: city.events.map((event) => event, newEvent),
       };
     });
-    console.log(updateCities);
-    // debugger;
+    // console.log(updateCities);
     setCities(updateCities);
   }
-  console.log(cities);
+  // console.log(cities);
 
   function handleEditEvent(editEvent) {
     console.log("In EventsList:", editEvent);
@@ -81,9 +80,8 @@ const App = () => {
         }),
       };
     });
-    // console.log(updateCities);
     setCities(updateCities);
-    console.log(updateCities);
+    // console.log(updateCities);
   }
 
   return (
