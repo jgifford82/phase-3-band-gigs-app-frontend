@@ -12,12 +12,12 @@ import CitiesList from "./CitiesList";
 
 const App = () => {
   const [cities, setCities] = useState([]);
+  // Events state is for EventsList component to display 10 recently added events.
   const [events, setEvents] = useState([]);
   // console.log(cities);
   // console.log(cities.events);
 
-  // Fetches data from backend server & sets state with that data. Empty dependencies array = side effect only runs 1st time component renders.
-
+  // Fetches cities data (containing events for each city) from backend server & sets state with that data. Empty dependencies array = side effect only runs 1st time component renders.
   useEffect(() => {
     fetch("http://localhost:9292/cities")
       .then((res) => res.json())
@@ -25,6 +25,7 @@ const App = () => {
       .then((data) => setCities(data));
   }, []);
 
+  // Fetches events data for EventsList component to display 10 recently added events.
   useEffect(() => {
     fetch("http://localhost:9292/events")
       .then((res) => res.json())
@@ -62,7 +63,7 @@ const App = () => {
       };
     });
     console.log(updateCities);
-    debugger;
+    // debugger;
     setCities(updateCities);
   }
   console.log(cities);
