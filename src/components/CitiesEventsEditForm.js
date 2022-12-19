@@ -7,9 +7,9 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
   // console.log(eventId);
 
   const initialValues = {
-    date: "",
-    time: "",
-    venue: "",
+    date: event.date,
+    time: event.time,
+    venue: event.venue,
   };
   //   console.log(initialValues);
 
@@ -25,7 +25,7 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
     // console.log(values);
   };
 
-  // State sets default form input values as object with empty strings.
+  // State sets default form input values as object with existing values. That way, if any inputs aren't updated, they don't get changed to empty strings on submit.
   const [values, setValues] = useState(initialValues);
   //   console.log(values);
 
@@ -33,7 +33,7 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
     // prevent page refresh on submit:
     e.preventDefault();
     // console.log("submitted");
-    console.log(values);
+    // console.log(values);
     // console.log(eventId);
 
     // using eventId instead of event.id
@@ -50,10 +50,6 @@ const CitiesEventsEditForm = ({ event, onEditClick, onEditEvent }) => {
 
     // set isEdit state to !isEdit so the form is no longer displayed
     onEditClick();
-
-    // Not sure I need to clear input fields if the edit form goes away on Submit?
-    // clear input fields on submit by updating values state:
-    setValues(initialValues);
   }
 
   return (
