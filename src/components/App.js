@@ -25,13 +25,13 @@ const App = () => {
       .then((data) => setCities(data));
   }, []);
 
-  // Fetches events data for EventsList component to display 10 recently added events.
+  // Fetches events data for EventsList component to display 10 recently added events. It updates whenever cities state is updated (i.e. event info added, deleted, or updated)
   useEffect(() => {
     fetch("http://localhost:9292/events")
       .then((res) => res.json())
       // .then((data) => console.log(data));
       .then((data) => setEvents(data));
-  }, []);
+  }, [cities]);
 
   // Updates state responsible for rendering cities when new city is added, which refreshes the page to display new city. Callback function passed as a prop to child (CitiesForm) so the new city can be sent up to parent (CitiesList).
   function handleAddCity(newCity) {
@@ -68,7 +68,7 @@ const App = () => {
   // console.log(cities);
 
   function handleEditEvent(editEvent) {
-    console.log("In EventsList:", editEvent);
+    // console.log("In EventsList:", editEvent);
     const updateCities = cities.map((city) => {
       return {
         ...city,
