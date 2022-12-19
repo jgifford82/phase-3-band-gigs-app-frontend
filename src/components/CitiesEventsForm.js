@@ -4,13 +4,17 @@ import Typography from "@mui/material/Typography";
 const CitiesEventsForm = ({ id, onAddEvent }) => {
   // console.log(id);
 
+  const cityId = parseInt(id);
+  // console.log(cityId);
+  // console.log(typeof cityId);
+
   const initialValues = {
     band: "",
     date: "",
     time: "",
     venue: "",
     price: "",
-    city_id: id,
+    city_id: cityId,
   };
   // console.log(initialValues);
 
