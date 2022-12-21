@@ -43,10 +43,14 @@ const App = () => {
     // console.log("handle delete Event", deletedEvent);
     // newCitites filters cities array down to all cities whose id doesn't match the deleted id.
     const newCities = cities.map((city) => {
-      return {
-        ...city,
-        events: city.events.filter((event) => event.id !== deletedEvent.id),
-      };
+      // map over cities. if the city id matches the deleted event's foreign key for city id, it will copy the city and filter down the city's events those whose id don't match the deleted event's id.
+      if (city.id === deletedEvent.city_id) {
+        return {
+          ...city,
+          events: city.events.filter((event) => event.id !== deletedEvent.id),
+        };
+      }
+      return city;
     });
     // console.log(newCities);
     setCities(newCities);
@@ -56,11 +60,15 @@ const App = () => {
     // console.log("In EventsList:", newEvent);
     // setEvents([...events, newEvent]);
 
+    // map over cities. if the city id matches the new event's foreign key for city id, it will copy the city and nested events, and add in the new event. Otherwise, it will return the existing city.
     const updateCities = cities.map((city) => {
-      return {
-        ...city,
-        events: city.events.map((event) => event, newEvent),
-      };
+      if (city.id === newEvent.city_id) {
+        return {
+          ...city,
+          events: [...city.events, newEvent],
+        };
+      }
+      return city;
     });
     // console.log(updateCities);
     setCities(updateCities);
@@ -69,16 +77,20 @@ const App = () => {
 
   function handleEditEvent(editEvent) {
     // console.log("In EventsList:", editEvent);
+    // map over all cities. if the city id matches edited event's foreign key for city id, it'll replace existing event as long as the event id matches the id of the event being edited.
     const updateCities = cities.map((city) => {
-      return {
-        ...city,
-        events: city.events.map((event) => {
-          if (event.id === editEvent.id) {
-            return editEvent;
-          }
-          return event;
-        }),
-      };
+      if (city.id === editEvent.city_id) {
+        return {
+          ...city,
+          events: city.events.map((event) => {
+            if (event.id === editEvent.id) {
+              return editEvent;
+            }
+            return event;
+          }),
+        };
+      }
+      return city;
     });
     setCities(updateCities);
     // console.log(updateCities);
