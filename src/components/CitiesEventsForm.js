@@ -45,8 +45,6 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
-    // refreshes the page onSubmit so the newly added event displays on the page. Couldn't get it to refresh with state change.
-    window.location.reload(false);
   }
 
   return (
