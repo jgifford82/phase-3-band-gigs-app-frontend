@@ -1,20 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CitiesForm from "./CitiesForm";
+import Typography from "@mui/material/Typography";
 
 const CitiesList = ({ cities, onAddCity }) => {
   const renderCities = cities.map((city) => (
     <ul key={city.id}>
-      <Link to={`/cities/${city.id}`} style={{ fontWeight: "bold" }}>
-        {city.name}
-      </Link>
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{ flexGrow: 1 }}
+        align="center"
+        fontWeight="bold"
+      >
+        <Link to={`/cities/${city.id}`}>{city.name}</Link>
+      </Typography>
     </ul>
   ));
   return (
     <div>
       <CitiesForm onAddCity={onAddCity} />
       <br></br>
-      CitiesList {renderCities}
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{ flexGrow: 1 }}
+        align="center"
+        fontWeight="bold"
+        color="green"
+      >
+        <br></br>
+        <br></br>
+        Click on a city to see it's events!{" "}
+      </Typography>{" "}
+      <br></br>
+      {renderCities}
     </div>
   );
 };

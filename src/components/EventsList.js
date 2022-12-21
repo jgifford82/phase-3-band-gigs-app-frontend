@@ -1,4 +1,5 @@
 import React from "react";
+import Typography from "@mui/material/Typography";
 
 const EventsList = ({ events }) => {
   // console.log(events);
@@ -13,7 +14,15 @@ const EventsList = ({ events }) => {
   return (
     <div>
       <br></br>
-      <br></br>EventsList {renderEvents}
+      <Typography
+        variant="h3"
+        component="div"
+        sx={{ flexGrow: 1 }}
+        align="center"
+      >
+        Here are the 10 newest events!
+      </Typography>
+      {renderEvents}
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import CitiesEventsEditForm from "./CitiesEventsEditForm";
 import CitiesEventsForm from "./CitiesEventsForm";
+import ShowCityEvent from "./ShowCityEvent.js";
 
 const CitiesEventsList = ({
   cities,
@@ -10,26 +9,26 @@ const CitiesEventsList = ({
   onAddEvent,
   onEditEvent,
 }) => {
-  // put post, delete, & patch here
-
   // useParams returns object with key/value pairs. destructured the id value to use it in foundCity variable
   const { id } = useParams();
-  // console.log(id);
+  const params = useParams();
 
-  // find all events with city id that equals the params id
-  const foundCity = cities.find((city) => city.id == id);
-  // console.log(foundCity);
-  // console.log(foundCity.events);
+  // find all events with city id that equals the params id, which had to be converted from string to number using parseInt.
+  // const foundCity = cities.find((city) => city.id == id);
+  const foundCity = cities.find(({ id }) => id === parseInt(params.id));
 
-  const renderEvents = foundCity.events.map((event) => (
-    <ul key={event.id}>
-      <button onClick={(e) => handleDeleteClick(e, event)}>X</button>
-      <Link to={`/events/${event.id}`} style={{ fontWeight: "bold" }}>
-        {event.band}: {event.date} {event.time} at {event.venue} for $
-        {event.price}{" "}
-      </Link>
-    </ul>
-  ));
+  // Map over the events for the specific city whose page is being viewed and pass down the event info to ShowCityEvent component. if no foundCity, returns error undefined when refreshing a city's events page
+  let renderEvents;
+  if (foundCity) {
+    renderEvents = foundCity.events.map((event) => (
+      <ShowCityEvent
+        key={event.id}
+        event={event}
+        onDeleteClick={handleDeleteClick}
+        onEditEvent={onEditEvent}
+      />
+    ));
+  }
 
   function handleDeleteClick(e, event) {
     fetch(`http://localhost:9292/events/${event.id}`, {
@@ -44,9 +43,9 @@ const CitiesEventsList = ({
     <div>
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
       <br></br>
-      <CitiesEventsEditForm id={id} onEditEvent={onEditEvent} />
       <br></br>
-      CitiesEventsList {renderEvents}
+      CitiesEventsList
+      {renderEvents}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
 const CitiesEventsForm = ({ id, onAddEvent }) => {
-  // console.log(id);
+  const cityId = parseInt(id);
 
   const initialValues = {
     band: "",
@@ -10,13 +10,11 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
     time: "",
     venue: "",
     price: "",
-    city_id: id,
+    city_id: cityId,
   };
-  // console.log(initialValues);
 
   // State sets default form input values as object with empty strings.
   const [values, setValues] = useState(initialValues);
-  // console.log(values);
 
   // Handles all form inputs with a single onChange handler. Destructured name & value attributes from input fields to reference the key/value pairs when updating state. onChange prop added to each input to call handleInputChange
   const handleInputChange = (e) => {
@@ -28,15 +26,11 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
       ...values,
       [name]: value,
     });
-    // console.log(values);
   };
 
   function handleSubmit(e) {
     // prevent page refresh on submit:
     e.preventDefault();
-    // console.log("submitted");
-    // console.log(values);
-    // console.log(id);
 
     fetch("http://localhost:9292/events", {
       method: "POST",
@@ -51,6 +45,8 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
 
     // clear input fields on submit by updating values state:
     setValues(initialValues);
+    // refreshes the page onSubmit so the newly added event displays on the page. Couldn't get it to refresh with state change.
+    window.location.reload(false);
   }
 
   return (
