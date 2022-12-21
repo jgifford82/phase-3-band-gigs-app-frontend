@@ -41,3 +41,5 @@ To get the frontend server to run, type the command line:
 ```
 npm start
 ```
+
+A browser window should open to: http://localhost:3000/
