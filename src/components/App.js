@@ -17,13 +17,13 @@ const App = () => {
   // console.log(cities);
   // console.log(cities.events);
 
-  // Fetches cities data (containing events for each city) from backend server & sets state with that data. Empty dependencies array = side effect only runs 1st time component renders.
+  // Fetches cities data (containing events for each city) from backend server & sets state with that data. It updates whenever cities state is updated. This way, whenever a new city is added to the page, the page doesn't need to be manually refreshed to display the new city in abc order.
   useEffect(() => {
     fetch("http://localhost:9292/cities")
       .then((res) => res.json())
       //   .then((data) => console.log(data));
       .then((data) => setCities(data));
-  }, []);
+  }, [cities]);
 
   // Fetches events data for EventsList component to display 10 recently added events. It updates whenever cities state is updated (i.e. event info added, deleted, or updated)
   useEffect(() => {
