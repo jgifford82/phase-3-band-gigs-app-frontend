@@ -49,7 +49,6 @@ const CitiesEventsForm = ({ id, onAddEvent }) => {
 
   return (
     <div>
-      EventsForm
       <Typography
         variant="h6"
         component="div"

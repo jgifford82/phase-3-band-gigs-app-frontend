@@ -44,7 +44,6 @@ const CitiesEventsList = ({
       <CitiesEventsForm id={id} onAddEvent={onAddEvent} />
       <br></br>
       <br></br>
-      CitiesEventsList
       {renderEvents}
     </div>
   );

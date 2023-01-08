@@ -33,12 +33,7 @@ const ShowCityEvent = ({ event, onDeleteClick, onEditEvent }) => {
     </div>
   );
 
-  return (
-    <div>
-      ShowCityEvent
-      {isEdit ? <>{renderEditEvent}</> : <>{renderEvent}</>}
-    </div>
-  );
+  return <div>{isEdit ? <>{renderEditEvent}</> : <>{renderEvent}</>}</div>;
 };
 
 export default ShowCityEvent;
